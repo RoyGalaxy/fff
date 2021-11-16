@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Countdown</title>
+</head>
+<body>
+    <div class="container">
+        <div class="counter">
+            <h1 class="heading">Time left for boards</h1>
+
+            <div class="days">
+                <h1 class="d">0</h1>
+                <span>Days</span>
+            </div>
+            <div class="hours">
+                <h1 class="h">0</h1>
+                <span>Hours</span>
+            </div>
+            <div class="minutes">
+                <h1 class="m">0</h1>
+                <span>Minutes</span>
+            </div>
+            <div class="seconds">
+                <h1 class="s">0</h1>
+                <span>Seconds</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let d = document.querySelector(".d");
+        let h = document.querySelector(".h");
+        let m = document.querySelector(".m");
+        let s = document.querySelector(".s");
+
+        let goal = new Date('2021-12-03 00:00:00')
+        
+        const countDown = () => {
+            let date = new Date();
+            let gap = goal - date;
+
+            let seconds = 1000;
+            let minutes = seconds * 60;
+            let hours = minutes * 60;
+            let days = hours * 24;
+
+            d.innerHTML = Math.floor(gap / days)
+            gap -= d.innerHTML * days
+            h.innerHTML = Math.floor(gap/hours)
+            gap -= h.innerHTML * hours 
+            m.innerHTML = Math.floor(gap / minutes)
+            gap -= m.innerHTML * minutes
+            s.innerHTML = Math.floor(gap / seconds)
+        }
+        setInterval(countDown,1000)
+    </script>
+</body>
+</html>
