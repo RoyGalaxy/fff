@@ -42,6 +42,10 @@
         const countDown = () => {
             let date = new Date();
             let gap = goal - date;
+            if(gap < 0){
+                goal = new Date("2021-12-21 11:10:00")
+                gap = goal - date
+            }
 
             let seconds = 1000;
             let minutes = seconds * 60;
